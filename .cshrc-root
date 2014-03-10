@@ -34,11 +34,7 @@ setenv  GREP_OPTIONS ' --color=auto'
 
 if ($?prompt) then
 	# An interactive shell -- set some stuff up
-#	set promptchars='$#'
 	set prompt = '%{^[[40;35;1m%}[%T] [root] %{^[[40;32;1m%}%$cwd/%#%{^[[40;32;1m%} '
-#       set prompt = '%{^[[40;35;1m%}[%T] [%$USER] %{^[[40;32;1m%}%$cwd/\>%{^[[40;32;1m%} '
-#	set prompt = "'%{^[[40;32;1m%}%$cwd/>'"
-#	set prompt = "%{^[[3;33;1m%}%T %{^[[m%}%{^[[3;30;1m%}[%{^[[m%}%{^[[3;37;%{^[[3;31;2m%}:%{^[[m%}%{^[[3;34;1m%}>%{^[[2;31;3m%} "
 	set filec
 	set history = 100
 	set savehist = 100

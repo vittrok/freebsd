@@ -50,12 +50,11 @@ set notify
 # Don't let me log out by pressing <ctrl-d>
 set ignoreeof
 
-set COLOR2="%{\e[00;32m%}"
+
 
 if ($?prompt) then
 	# An interactive shell -- set some stuff up
-#	set promptchars='$#'
-        set prompt = '%{^[[40;35;1m%}[%T] [%$USER] %{^[[40;32;1m%}%$cwd/%#%{^[[40;32;1m%} '
+    set prompt = '%{^[[40;35;1m%}[%T] [%$USER] %{^[[40;32;1m%}%$cwd/%#%{^[[40;32;1m%} '
 	if( `whoami` == root ) then
 		set COLOR2="%{\e[00;31m%}"
 		set COLOR1="%{\e[01;32m%}"
@@ -63,15 +62,11 @@ if ($?prompt) then
 		set prompt="%{^[[00;31m%}[%T] $COLOR1\[$COLOR2`whoami`$COLOR1] $COLOR2%b%/%b%#$COLOR3 "
 	endif
 
-#	set prompt = '%{^[[40;35;1m%}[%T] [%$USER] %{^[[40;32;1m%}%$cwd/%#%{^[[40;32;1m%} '
-#       set prompt = '%{^[[40;35;1m%}[%T] [%$USER] %{^[[40;32;1m%}%$cwd/\>%{^[[40;32;1m%} '
-#	set prompt = "'%{^[[40;32;1m%}%$cwd/>'"
-#	set prompt = "%{^[[3;33;1m%}%T %{^[[m%}%{^[[3;30;1m%}[%{^[[m%}%{^[[3;37;%{^[[3;31;2m%}:%{^[[m%}%{^[[3;34;1m%}>%{^[[2;31;3m%} "
 	set filec
 	set history = 500
 	set savehist = 500
 	set mail = (/var/mail/$USER)
-        set autolist = TAB
+    set autolist = TAB
 	set complet all
 	set autocorrect
 	set nobeep
