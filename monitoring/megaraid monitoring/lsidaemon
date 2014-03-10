@@ -1,0 +1,20 @@
+#!/bin/sh
+
+number_of_last_warn_from_log=`/usr/sbin/mfiutil show events | awk '{print $1}' | tail -n 1`;
+number_of_last_existed_warn=23385;
+
+
+if (/usr/local/sbin/check_megaraid_sas | grep OK > /dev/null)
+    then 
+	if (date | grep 21:50 > /dev/null)
+	    then /usr/local/sbin/lsi_raid_mon.sh;
+	else
+	    if (/usr/sbin/mfiutil show events | awk '{print $7}' | grep WARN) > /dev/null
+	        then
+	            if [ $number_of_last_warn_from_log -gt $number_of_last_existed_warn ]
+	        	then /usr/local/sbin/lsi_raid_mon.sh;
+	            fi;
+	    fi;
+	fi;
+    else /usr/local/sbin/lsi_raid_mon.sh;
+fi
